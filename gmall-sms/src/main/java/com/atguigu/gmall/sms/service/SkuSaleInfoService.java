@@ -8,6 +8,7 @@ import com.atguigu.gmall.sms.dto.SkuSaleDto;
  */
 public interface SkuSaleInfoService {
 
-
     void saveBySku(SkuSaleDto skuSaleDto);
+
+
 }

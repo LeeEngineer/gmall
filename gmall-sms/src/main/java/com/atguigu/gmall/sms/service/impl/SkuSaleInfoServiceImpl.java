@@ -11,6 +11,7 @@ import com.atguigu.gmall.sms.service.SkuSaleInfoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
@@ -30,6 +31,7 @@ public class SkuSaleInfoServiceImpl implements SkuSaleInfoService {
     private SkuLadderMapper skuLadderMapper;
 
     @Override
+    @Transactional
     public void saveBySku(SkuSaleDto skuSaleDto) {
 
         //保存积分信息

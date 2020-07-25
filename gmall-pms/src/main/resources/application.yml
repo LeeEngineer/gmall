@@ -42,3 +42,8 @@
 #    accessKey: kUl9UpxbhJjfBWykJpGqMaFWE8hj1i
 #    endpoint: oss-cn-beijing.aliyuncs.com
 #    bucket: gmallfile
+#spring:
+#  cloud:
+#    alibaba:
+#      seata:
+#        tx-service-group: pms-service-fescar-service-group
