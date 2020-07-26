@@ -22,7 +22,6 @@ import com.atguigu.gmall.common.bean.PageParamVo;
 
 /**
  * spu信息
- *
  * @author Lee_Engineer
  * @email 1191967047@qq.com
  * @date 2020-07-20 18:23:15
@@ -41,6 +40,15 @@ public class SpuController {
 
         PageResultVo pageResultVo = spuService.querySpuByCid(categoryId,pageParamVo);
         return ResponseVo.ok(pageResultVo);
+    }
+
+
+    @PostMapping("/json")
+    public ResponseVo<List<SpuEntity>> querySpuByPageJson(@RequestBody PageParamVo paramVo){
+
+        PageResultVo pageResultVo = spuService.queryPage(paramVo);
+        return ResponseVo.ok((List<SpuEntity>)pageResultVo.getList());
+
     }
 
     /**
