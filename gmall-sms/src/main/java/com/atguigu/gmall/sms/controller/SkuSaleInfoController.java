@@ -3,13 +3,13 @@ package com.atguigu.gmall.sms.controller;
 import com.atguigu.gmall.common.bean.ResponseVo;
 import com.atguigu.gmall.sms.dto.SkuSaleDto;
 import com.atguigu.gmall.sms.service.SkuSaleInfoService;
+import com.atguigu.gmall.sms.vo.ItemSaleVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author Lee_engineer
@@ -22,6 +22,14 @@ public class SkuSaleInfoController {
 
     @Autowired
     private SkuSaleInfoService skuSaleInfoService;
+
+    @GetMapping("/sku/{skuId}")
+    public ResponseVo<List<ItemSaleVo>> getItemSaleInfoBySkuId(@PathVariable("skuId") Long skuId){
+
+        List<ItemSaleVo> itemSaleVos = skuSaleInfoService.getItemSaleInfoBySkuId(skuId);
+        return ResponseVo.ok(itemSaleVos);
+
+    }
 
     @PostMapping("/save")
     @ApiOperation("保存sku营销信息")

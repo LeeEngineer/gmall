@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface GmallWmsApi {
 
-    @GetMapping("/sku/{skuId}")
+    @GetMapping("wms/waresku/sku/{skuId}")
     ResponseVo<List<WareSkuEntity>> getWareSkuBySkuId(@PathVariable("skuId") Long skuId);
 
 }

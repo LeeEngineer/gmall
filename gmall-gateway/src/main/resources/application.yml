@@ -6,6 +6,7 @@
 #      discovery:
 #        server-addr: 127.0.0.1:8848
 #    gateway:
+#      x-forwarded.host-enabled: true
 #      routes:
 #        - id: pms-route
 #          uri: lb://pms-service
@@ -31,3 +32,19 @@
 #          uri: lb://search-service        
 #          predicates:          
 #            - Host=search.gmall.com
+#        - id: item-route
+#          uri: lb://item-service
+#          predicates:
+#            - Path=/item/**
+#        - id: ums-route
+#          uri: lb://ums-service
+#          predicates:
+#            - Path=/ums/**
+#        - id: cart-route
+#          uri: lb://cart-service
+#          predicates:
+#            - Host=cart.gmall.com
+#auth:
+#  jwt:
+#    pubKeyPath: D:\\gulimall\\key\\rsa.pub # 公钥地址
+#    cookieName: GMALL-TOKEN

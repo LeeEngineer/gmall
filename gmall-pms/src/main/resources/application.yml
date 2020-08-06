@@ -47,3 +47,16 @@
 #    alibaba:
 #      seata:
 #        tx-service-group: pms-service-fescar-service-group
+spring:
+  rabbitmq:
+    host: 106.14.208.184
+    port: 5672
+    username: likunc
+    password: kflk1994
+    virtual-host: /gmall
+    publisher-confirm-type: correlated
+    publisher-returns: true
+
+server:
+  tomcat:
+    connection-timeout: 60

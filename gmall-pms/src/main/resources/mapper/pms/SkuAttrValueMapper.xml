@@ -2,4 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.gmall.pms.mapper.SkuAttrValueMapper">
 
+    <select id="querySearchSkuAttrValueBySkuId" resultType="com.atguigu.gmall.pms.entity.SkuAttrValueEntity">
+
+        select *
+        from pms_sku_attr_value av
+        inner join pms_attr a on av.attr_id = a.id
+        where av.sku_id=#{skuId} and a.search_type=1
+
+    </select>
+    <select id="querySkusJsonBySpuId" resultType="java.util.Map">
+
+        SELECT
+            av.sku_id,
+            GROUP_CONCAT(av.attr_value) as attr_values
+        FROM
+            pms_sku_attr_value av
+        LEFT JOIN pms_sku s ON av.sku_id = s.id
+        WHERE
+            s.spu_id = #{spuId}
+        GROUP BY av.sku_id
+
+    </select>
 </mapper>

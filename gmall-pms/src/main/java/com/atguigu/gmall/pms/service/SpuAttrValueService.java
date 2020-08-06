@@ -6,6 +6,7 @@ import com.atguigu.gmall.common.bean.PageResultVo;
 import com.atguigu.gmall.common.bean.PageParamVo;
 import com.atguigu.gmall.pms.entity.SpuAttrValueEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,5 +21,7 @@ public interface SpuAttrValueService extends IService<SpuAttrValueEntity> {
     PageResultVo queryPage(PageParamVo paramVo);
 
     void saveSpuAttrValue(SpuVo spuVo, Long spuId);
+
+    List<SpuAttrValueEntity> querySpuAttrValueBySpuId(Long spuId);
 }
 

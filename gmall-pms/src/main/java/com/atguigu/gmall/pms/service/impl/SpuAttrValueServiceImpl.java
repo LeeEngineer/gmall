@@ -3,6 +3,7 @@ package com.atguigu.gmall.pms.service.impl;
 import com.atguigu.gmall.pms.vo.BaseAttrValueVo;
 import com.atguigu.gmall.pms.vo.SpuVo;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +26,9 @@ import org.springframework.util.CollectionUtils;
 
 @Service("spuAttrValueService")
 public class SpuAttrValueServiceImpl extends ServiceImpl<SpuAttrValueMapper, SpuAttrValueEntity> implements SpuAttrValueService {
+
+    @Autowired
+    private SpuAttrValueMapper spuAttrValueMapper;
 
     @Override
     public PageResultVo queryPage(PageParamVo paramVo) {
@@ -50,6 +54,13 @@ public class SpuAttrValueServiceImpl extends ServiceImpl<SpuAttrValueMapper, Spu
             //信息批量插入数据库表
             this.saveBatch(spuAttrValueEntities);
         }
+    }
+
+    @Override
+    public List<SpuAttrValueEntity> querySpuAttrValueBySpuId(Long spuId) {
+
+        return spuAttrValueMapper.querySpuAttrValueBySpuId(spuId);
+
     }
 
 }
