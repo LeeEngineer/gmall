@@ -1,0 +1,12 @@
+package com.atguigu.gmall.cart.feign;
+
+import com.atguigu.gmall.pms.api.GmallPmsApi;
+import org.springframework.cloud.openfeign.FeignClient;
+
+/**
+ * @author Lee_engineer
+ * @create 2020-08-07 17:55
+ */
+@FeignClient("pms-service")
+public interface GmallPmsClient extends GmallPmsApi {
+}

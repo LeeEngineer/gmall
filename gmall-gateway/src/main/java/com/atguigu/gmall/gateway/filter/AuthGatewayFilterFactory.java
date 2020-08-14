@@ -1,6 +1,5 @@
 package com.atguigu.gmall.gateway.filter;
 
-import com.atguigu.gmall.common.utils.CookieUtils;
 import com.atguigu.gmall.common.utils.IpUtil;
 import com.atguigu.gmall.common.utils.JwtUtils;
 import com.atguigu.gmall.gateway.config.JwtProperties;
@@ -24,7 +23,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
